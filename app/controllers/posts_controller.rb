@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
   def create
-    p "*" * 50
-    p params
-    p "*" * 50
     @post = Post.new(post_params)
     if @post.save
-      redirect_to "/"
+      redirect_to posts_path
     end
   end
 
